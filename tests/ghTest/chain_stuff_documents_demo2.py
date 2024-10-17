@@ -26,7 +26,11 @@ def get_docs(role: str="student") -> List[Document]:
 prompt = PromptTemplate.from_template(
     "每个人喜欢的颜色是什么： \n {context}"
 )
-answer_chain_default = create_stuff_documents_chain(llm=model, prompt=prompt, output_parser=StrOutputParser())
+answer_chain_default = create_stuff_documents_chain(
+    llm=model,
+    prompt=prompt,
+    output_parser=StrOutputParser()
+)
 # output = answer_chain_default.invoke({"context": get_docs()})
 # print(f"first: {output}")
 
