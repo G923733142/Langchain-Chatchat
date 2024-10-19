@@ -1,5 +1,6 @@
+import os
 
-
+from dotenv import load_dotenv
 from langchain_community.llms.tongyi import Tongyi
 from langchain.prompts import PromptTemplate
 from langchain.prompts.few_shot import FewShotPromptTemplate
@@ -11,7 +12,9 @@ from langchain.prompts.example_selector import SemanticSimilarityExampleSelector
 
 from langchain_community.embeddings import DashScopeEmbeddings
 
-
+load_dotenv('D:/PycharmProjects/Langchain-Chatchat/.env')  # 指定加载 env 文件
+key = os.getenv('DASHSCOPE_API_KEY')  # 获得指定环境变量
+DASHSCOPE_API_KEY = os.environ["DASHSCOPE_API_KEY"]  # 获得指定环境变量
 
 def prompt_template_demo():
     prompt_template = PromptTemplate.from_template(
